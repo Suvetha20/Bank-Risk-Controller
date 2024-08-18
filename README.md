@@ -42,31 +42,32 @@ The Bank Risk Controller System is a robust predictive model designed to identif
 
 1. Home
    
-* Overview of the Bank Risk Controller System.
-* Displays information about the domain, technologies used, and project objectives.
+   * Overview of the Bank Risk Controller System.
+   * Displays information about the domain, technologies used, and project objectives.
   
-3. Matrix Insights
+2. Matrix Insights
    
-* Showcases the model performance metrics for different machine learning algorithms.
-* Highlights the selected algorithm (XGradient Boosting) with a 98% accuracy.
+   * Showcases the model performance metrics for different machine learning algorithms.
+   * Highlights the selected algorithm (XGradient Boosting) with a 98% accuracy.
   
-5. EDA Visualization
+3. EDA Visualization
    
-* Provides exploratory data analysis (EDA) insights.
-* Includes skewness detection, log transformation, and outlier handling.
+   * Provides exploratory data analysis (EDA) insights.
+   * Includes skewness detection, log transformation, and outlier handling.
   
-7. Model Prediction
+4. Model Prediction
    
-* A form-based interface to input customer data for predicting loan default status.
-* Uses the pre-trained model to predict whether a customer will default.
+   * A form-based interface to input customer data for predicting loan default status.
+   * Uses the pre-trained model to predict whether a customer will default.
   
-9. ML Sentiment Analysis
+5. ML Sentiment Analysis
     
-* Sentiment analysis using the VADER model from NLTK.
-* Analyzes and visualizes the sentiment of user-provided text.
+   * Sentiment analysis using the VADER model from NLTK.
+   * Analyzes and visualizes the sentiment of user-provided text.
 
-11. About
-* Detailed description of the project, dataset, and expected outcomes.
+6. About
+ 
+   * Detailed description of the project, dataset, and expected outcomes.
 
 ## Dataset
 
