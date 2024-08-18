@@ -25,16 +25,16 @@ The Bank Risk Controller System is a robust predictive model designed to identif
     
 ## Installation
 
-  1.Clone the repository:
+  1. Clone the repository:
                
         git clone <repository-url>
         cd <repository-folder>
           
-  2.Install the required Python packages:
+  2. Install the required Python packages:
 
       pip install -r requirements.txt
       
-  3.Run the Streamlit application:
+  3. Run the Streamlit application:
   
       streamlit run main.py
       
@@ -76,8 +76,11 @@ The dataset used in this project contains various features such as personal info
 ## How to Use
 
 1.Navigate through different sections of the app using the sidebar menu.
+
 2.Use the Model Prediction section to predict the default status of a customer by filling out the form.
+
 3.Explore the EDA Visualization section to understand the data characteristics.
+
 4.Analyze text sentiment in the ML Sentiment Analysis section.
 
 ## Conclusion
