@@ -27,17 +27,17 @@ The Bank Risk Controller System is a robust predictive model designed to identif
 
   1. Clone the repository:
                
-        git clone <repository-url>
-        cd <repository-folder>
+         git clone <repository-url>
+         cd <repository-folder>
           
   2. Install the required Python packages:
 
-      pip install -r requirements.txt
+         pip install -r requirements.txt
       
   3. Run the Streamlit application:
   
-      streamlit run main.py
-      
+         streamlit run main.py
+       
 ## Features
 
 1. Home
