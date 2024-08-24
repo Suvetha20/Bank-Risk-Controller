@@ -85,3 +85,7 @@ The dataset used in this project contains various features such as personal info
 
 ## Conclusion
 The Bank Risk Controller System is an effective tool for predicting customer loan defaults, enabling financial institutions to manage their credit risk proactively. The Streamlit application provides an intuitive interface for model interaction and data analysis.
+
+## Connect
+Linkedin: https://www.linkedin.com/in/suvetha-soubrayen-82a072190/
+Email Id: suvetha0520@gmail.com
