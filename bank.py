@@ -4,29 +4,16 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import plotly.express as px
 import pickle
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
 import re
 from sklearn.preprocessing import LabelEncoder
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
+                                                                                                        
 
-
-#df_modified = pd.read_csv("C:/Users/HP/Desktop/Data Scientist/project/final -Bank Risk Controller Systems/df_modified.csv")
-df = pd.read_csv(r"C:\Users\User\Desktop\bnk final\df_final.csv")
-
-
-# --------------------------------------------------Logo & details on top
-
-st.set_page_config(page_title= "Bank Risk Controller System | By Meenakshi H",
-                   layout= "wide",
-                   initial_sidebar_state= "expanded")
-image_link = "https://media.licdn.com/dms/image/D4E12AQFFXWlXKVpR3w/article-cover_image-shrink_720_1280/0/1690140660762?e=2147483647&v=beta&t=CdvvLAcy13DQp56s8IB8Mv5_Ojhoa4g_6TSBs_qI-Eg"
-st.markdown(f""" <style>.stApp {{
-                    background: url('{image_link}');   
-                    background-size: cover}}
-                 </style>""",unsafe_allow_html=True)
+df = pd.read_csv(r"C:/Users/User/Desktop/singapore/df_final.csv")
 
 # Function to safely convert to sqrt
 def log_trans(value):
@@ -39,25 +26,9 @@ def log_trans(value):
 
 # Define occupation types in alphabetical order with corresponding numeric codeslabel_encoding
 
-occupation = {
-    0: 'Accountants',
-    1: 'Cleaning staff',
-    2: 'Cooking staff',
-    3: 'Core staff',
-    4: 'Drivers',
-    5: 'HR staff',
-    6: 'High skill tech staff',
-    7: 'IT staff',
-    8: 'Laborers',
-    9: 'Low-skill Laborers',
-    10: 'Managers',
-    11: 'Medicine staff',
-    12: 'Private service staff',
-    13: 'Realty agents',
-    14: 'Sales staff',
-    15: 'Secretaries',
-    16: 'Security staff',
-    17: 'Waiters/barmen staff',
+occupation = {0: 'Accountants',1: 'Cleaning staff',2: 'Cooking staff', 3: 'Core staff', 4: 'Drivers',5: 'HR staff', 6: 'High skill tech staff', 7: 'IT staff',
+8: 'Laborers',9: 'Low-skill Laborers',10: 'Managers',11: 'Medicine staff', 12: 'Private service staff', 13: 'Realty agents', 14: 'Sales staff', 15: 'Secretaries',16: 'Security staff',
+17: 'Waiters/barmen staff',
 }
 
 
@@ -79,19 +50,24 @@ status = {'Approved' : 0, 'Canceled' : 1, 'Refused' : 2, 'Unused offer' : 3}
 Yield = {'low_normal' :3, 'middle' :4, 'XNA' :0, 'high' :1, 'low_action' :2}
 
 
+# streamlit part
+
+st.set_page_config(page_title= "Bank Risk Controller System ",
+                   page_icon="🏦",
+                   layout= "wide",
+                   initial_sidebar_state= "expanded")
+
+
 with st.sidebar:
-    st.image("https://postalrmsbank.in/im/l1.png")
-   
-
-
+    
     opt = option_menu("Menu",
-                    ["Home",'Matrix Insights','EDA','Model Prediction','ML Sentiment Analysis',"About"],
+                    ["Home",'Matrix Insights','EDA Visualization','Model Prediction','ML Sentiment Analysis',"About"],
                     icons=["house","table","bar-chart-line","graph-up-arrow","search", "exclamation-circle"],
                     menu_icon="cast",
                     default_index=0,
-                    styles={"icon": {"color": "red", "font-size": "20px"},
-                            "nav-link": {"font-size": "15px", "text-align": "left", "margin": "-2px", "--hover-color": "blue"},
-                            "nav-link-selected": {"background-color": "blue"}})
+                    styles={"icon": {"color": "violet", "font-size": "27px"},
+                            "nav-link": {"font-size": "15px", "text-align": "left", "margin": "-2px", "--hover-color": "rainbow"},
+                            "nav-link-selected": {"background-color": "rainbow"}})
     
 
 
@@ -101,16 +77,16 @@ if opt=="Home":
         with col:
             st.write(" ")
         with coll:
-            st.markdown("# Bank Risk Controller System")
+            st.markdown("# :rainbow[Bank Risk Controller System]")
           
             st.write(" ")     
-        st.markdown("### :red[*OVERVIEW*]")
+        st.markdown("### :violet[*OVERVIEW*]")
         st.markdown("### *The expected outcome of this project is a robust predictive model that can accurately identify customers who are likely to default on their loans. This will enable the financial institution to proactively manage their credit portfolio, implement targeted interventions, and ultimately reduce the risk of loan defaults.*")
         col1,col2=st.columns([3,2],gap="large")
         with col1:
-            st.markdown("### :red[*DOMAIN*] - Banking")
+            st.markdown("### :violet[*DOMAIN*] - Banking")
             st.markdown("""
-                        ### :red[*TECHNOLOGIES USED*]     
+                        ### :violet[*TECHNOLOGIES USED*]     
 
                         ### *Python*
                         ### *Data Preprocessing*
@@ -120,33 +96,29 @@ if opt=="Home":
                         ### *Visualization*
                         ### *Machine Learning - Classification Model*
                         ### *Streamlit GUI*
-                        
                         """)
         with col2:
                 st.write(" ")
+                st.image("C:/Users/User/Desktop/singapore/strategic-decision-solutions.gif")
     
 if opt=="Matrix Insights":
-                #st.header(":red[Data Used]")
+                #st.header(":violet[Data Used]")
                 #st.dataframe(df)
 
-                st.header(":red[Model Performance]")
+                st.header(":violet[Model Performance]")
                 data = {
-                            "Algorithm": ["Decision Tree","Random Forest","KNN","XGradientBoost"],
-                            "Accuracy": [86,86,88,98],
-                            "Precision": [86,86,86,98],
-                            "Recall": [86,86,86,98],
-                            "F1 Score": [86,86,86,98]
-                            
-                            }
+                            "Algorithm": ["Decision Tree","Random Forest","KNN","XGradientBoost"],"Accuracy": [86,86,88,98],"Precision": [86,86,86,98],
+                            "Recall": [86,86,86,98],"F1 Score": [86,86,86,98]
+                             }
                 dff = pd.DataFrame(data)
                 st.dataframe(dff)
-                st.markdown(f"## The Selected Algorithm is :red[*XGradient Boosting*] and its Accuracy is   :red[*98%*]")
+                st.markdown(f"## The Selected Algorithm is :violet[*XGradient Boosting*] and its Accuracy is   :violet[*98%*]")
 
 
 if opt=="Model Prediction":
             
     # Streamlit form for user inputs
-    st.markdown(f'## :red[*Predicting Customers Default on Loans*]')
+    st.markdown(f'## :violet[*Predicting Customers Default on Loans*]')
     st.write(" ")
     
     with st.form("my_form"):
@@ -166,7 +138,7 @@ if opt=="Model Prediction":
         with col2:
         
             NAME_YIELD_GROUP = st.selectbox("YIELD GROUP",list(Yield.keys()), key='NAME_YIELD_GROUP')
-            CODE_GENDER = st.selectbox("CODE GENDER", list(Gender.keys()), key='CODE_GENDER')
+            CODE_GENDER = st.selectbox("GENDER", list(Gender.keys()), key='GENDER')
             AGE = st.text_input("AGE", key="AGE")
             CLIENT_RATING = st.text_input("CLIENT RATING", key="CLIENT_RATING")
             DAYS_LAST_PHONE_CHANGE = st.text_input("PHONE CHANGE", key="DAYS_LAST_PHONE_CHANGE")
@@ -181,7 +153,7 @@ if opt=="Model Prediction":
         <style>
         div.stButton > button:first-child {
             background-color: #FBCEB1;
-            color: red;
+            color: violet;
             width: 50%;
             display: block;
             margin: auto;
@@ -238,18 +210,7 @@ if opt=="Model Prediction":
             # Create sample array with encoded categorical variables
             sample = np.array([
                 [
-                    Occupation,
-                    Education,
-                    Income_type,
-                    Income_amt,
-                    Reason,
-                    Status,
-                    yield_group,
-                    Genders,
-                    Age,
-                    Rating,
-                    log_trans(Phone), 
-                    log_trans(ID_Published), 
+                    Occupation,Education,Income_type,Income_amt,Reason,Status, yield_group, Genders,Age,Rating,log_trans(Phone), log_trans(ID_Published), 
                     log_trans(Registration), 
                 ]
             ])
@@ -261,42 +222,32 @@ if opt=="Model Prediction":
             pred = knn.predict(sample)
 
             if pred == 1:
-                st.markdown(f' ## The status is: :red[Won\'t Repay]')
+                st.markdown(f' ## The status is: :violet[Won\'t Repay]')
             else:
-                st.write(f' ## The status is: :red[Repay]')
+                st.write(f' ## The status is: :violet[Repay]')
         except ValueError as e:
             st.error(f"Error processing inputs: {e}")
             st.write("Please check your input values. Only numeric values are allowed.")
 
-if opt=="EDA":
+if opt=="EDA Visualization":
     
-
     
-    st.subheader(":red[Insights of Bank Risk Controller System]")
+    st.subheader(":violet[Insights of Bank Risk Controller ]")
 
     col1,col2,col3 = st.columns(3)
 
-             
     # detecting the skewed columns using plot
     plt.rcParams['figure.figsize'] = (4, 3)  # Set default figure size
 
     def skewplot(df, column):
-        #st.set_option('deprecation.showPyplotGlobalUse', False)
+        st.set_option('deprecation.showPyplotGlobalUse', False)
         plt.figure(figsize=(5, 4))  # Set figure size
         sns.boxplot(df[column])
         #sns.violinplot(df[column])
         plt.tight_layout()  # Adjust layout
         st.pyplot(use_container_width=True)
+        
 
-    #def skewplot(df, column):
-    # st.set_option('deprecation.showPyplotGlobalUse', False)
-    #plt.figure(figsize=(10, 6))
-    #sns.histplot(df[column], kde=True)
-    #st.pyplot(plt)
-
-
-    
-    
     with col1:
          
         skewed_columns= ['OCCUPATION_TYPE', 'NAME_EDUCATION_TYPE','CODE_REJECT_REASON', 'NAME_CONTRACT_STATUS',
@@ -320,7 +271,6 @@ if opt=="EDA":
         df["DAYS_LAST_PHONE_CHANGE_log"] = np.log(df["DAYS_LAST_PHONE_CHANGE"])
         df["DAYS_ID_PUBLISH_log"] = np.log(df["DAYS_ID_PUBLISH"])
         df["DAYS_REGISTRATION_log"] = np.log(df["DAYS_REGISTRATION"])
-
 
         
         skwed_columns_2=['NAME_EDUCATION_TYPE_log','CODE_REJECT_REASON_log',
@@ -349,14 +299,13 @@ if opt=="EDA":
         for i in outlier_columns:
             outlier(df,i)
 
-
         for i in outlier_columns:
             st.write("### After Interquartile Range (IQR)")
             skewplot(df,i)
 
 if opt == "ML Sentiment Analysis":
 
-    st.markdown("### :red[ML Sentiment Analysis]")
+    st.markdown("## :violet[ML Sentiment Analysis]")
     st.write("")
     st.write("")
 
@@ -398,48 +347,22 @@ if opt == "ML Sentiment Analysis":
 if opt=="About":
         
           
-        st.markdown(f"### :red[ABOUT]")
+        st.markdown(f"### :violet[ABOUT]")
         st.write(" ")
         st.markdown(f"#### ***In the financial industry, assessing the risk of customer default is crucial for maintaining a healthy credit portfolio. Default occurs when a borrower fails to meet the legal obligations of a loan. Accurate prediction of default can help financial institutions mitigate risks, allocate resources efficiently, and develop strategies to manage potentially delinquent accounts. This project aims to develop a predictive model to determine the likelihood of customer default using historical data.***")
-        st.markdown(f"### :red[DATA DESCRIPTION]")
+        st.markdown(f"### :violet[DATA DESCRIPTION]")
         st.markdown(f"#### ***The dataset provided contains multiple features that may influence the likelihood of a customer defaulting on a loan. These features include:*** ")
         st.write(" ")
         st.write(" ")
         
-        st.markdown(f"#### :red[***Personal Information:***] Age, gender, etc.")
-        st.markdown(f"#### :red[***Credit History:***] Previous loan defaults, credit score, number of open credit lines, etc.")
-        st.markdown(f"#### :red[***Financial Status:***] Annual income, current debt, loan amount, etc.")
-        st.markdown(f"#### :red[***Employment Details:***] Employment status, etc. The target variable 0: No default 1: Default")
+        st.markdown(f"#### :violet[***Personal Information:***] Age, gender, etc.")
+        st.markdown(f"#### :violet[***Credit History:***] Previous loan defaults, credit score, number of open credit lines, etc.")
+        st.markdown(f"#### :violet[***Financial Status:***] Annual income, current debt, loan amount, etc.")
+        st.markdown(f"#### :violet[***Employment Details:***] Employment status, etc. The target variable 0: No default 1: Default")
 
         st.write(" ")
         st.write(" ")
 
-        st.markdown(f"### :red[CONCLUSION]")
+        st.markdown(f"### :violet[CONCLUSION]")
         st.write(" ")
         st.markdown(f"#### ***The expected outcome of this project is a robust predictive model that can accurately identify customers who are likely to default on their loans. This will enable the financial institution to proactively manage their credit portfolio, implement targeted interventions, and ultimately reduce the risk of loan defaults.***")
-
-
-        co,coo=st.columns([3,7],gap="small")
-        with coo:
-           st.markdown(f"#### *Feel free to delve into the project on my GitHub repository* ")
-        with co:
-             st.write(" ")
-             
-
-
-
-
-
-            
-
-
-    
-
-
-
-
-
-
-
-
-
