@@ -13,16 +13,15 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
                                                                                                         
 
-df = pd.read_csv(r"C:/Users/User/Desktop/singapore/df_final.csv")
 
-# Function to safely convert to sqrt
+
 def log_trans(value):
     try:
         return np.log(float(value))  # Conversion to float
     except (ValueError, TypeError):
         raise ValueError(f"Invalid input: {value}")
 
-  
+  df = pd.read_csv(r"C:/Users/User/Desktop/singapore/df_final.csv")
 
 # Define occupation types in alphabetical order with corresponding numeric codeslabel_encoding
 
@@ -32,10 +31,10 @@ occupation = {0: 'Accountants',1: 'Cleaning staff',2: 'Cooking staff', 3: 'Core 
 }
 
 
-# Mapping for NAME_EDUCATION_TYPE
+# EDUCATION_TYPE mapping
 education = {'Secondary / secondary special' : 4, 'Higher education' : 1, 'Incomplete higher' : 2, 'Lower secondary' : 3, 'Academic degree' : 0}
 
-# Mapping for Gender
+# Gender mapping
 Gender = {'M' : 1,'F' : 0, 'XNA' : 2}
 
 Income = {'Working' : 5, 'State servant' : 3, 'Commercial associate' : 0, 'Student' : 4,
